@@ -2,7 +2,7 @@
     /**
      * The application's namespace, used by Sencha Command to generate classes
      */
-    "name": "i18nBundleTouchConcept",
+    "name": "i18nDemo",
 
     /**
      * The file path to this application's front HTML document, relative to this app.json file
@@ -42,9 +42,6 @@
         {
             "path": "touch/sencha-touch.js",
             "x-bootstrap": true
-        },
-        {
-            "path": "js_i18n/Bundle.js"
         },
         {
             "path": "bootstrap.js",
@@ -134,5 +131,5 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "572aef24-804c-48b8-9201-cbeefeab240f"
+    "id": "cb659e82-9bab-4eea-a52f-81429008ffc8"
 }
