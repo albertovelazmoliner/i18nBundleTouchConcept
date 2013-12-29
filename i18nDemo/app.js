@@ -10,9 +10,9 @@
     will need to resolve manually.
 */
 
-Ext.Loader.setPath({
-    'Ext.i18n': 'js_i18n'
-});
+// Ext.Loader.setPath({
+//     'Ext.i18n': 'js_i18n'
+// });
 
 Ext.require('Ext.i18n.Bundle', function(){
     Ext.i18n.appBundle = Ext.create('Ext.i18n.Bundle',{
@@ -56,8 +56,10 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-        // Initialize the main view
-        Ext.Viewport.add(Ext.create('i18nBundleTouchConcept.view.ContainerLoginView'));
+        Ext.i18n.appBundle.onReady(function(){
+            // Initialize the main view
+            Ext.Viewport.add(Ext.create('i18nBundleTouchConcept.view.ContainerLoginView'));
+        });
     },
 
     onUpdated: function() {

@@ -16,7 +16,8 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "i18nDemo": "app"
+  "Ext.i18n": "js_i18n",
+  "i18nBundleTouchConcept": "app"
 });
 Ext.ClassManager.addNameAlternateMappings({
   "Ext.AbstractComponent": [],
@@ -502,6 +503,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.fx.runner.Css": [],
   "Ext.fx.runner.CssAnimation": [],
   "Ext.fx.runner.CssTransition": [],
+  "Ext.i18n.Bundle": [],
+  "Ext.i18n.model.Property": [],
+  "Ext.i18n.reader.Property": [],
   "Ext.layout.Abstract": [],
   "Ext.layout.Box": [],
   "Ext.layout.Card": [],
@@ -640,7 +644,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "i18nDemo.view.Main": []
+  "i18nBundleTouchConcept.view.ContainerLoginView": [],
+  "i18nBundleTouchConcept.view.Login": [],
+  "i18nBundleTouchConcept.view.Main": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1190,6 +1196,11 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.fx.runner.Css": [],
   "Ext.fx.runner.CssAnimation": [],
   "Ext.fx.runner.CssTransition": [],
+  "Ext.i18n.Bundle": [],
+  "Ext.i18n.model.Property": [],
+  "Ext.i18n.reader.Property": [
+    "reader.property"
+  ],
   "Ext.layout.Abstract": [],
   "Ext.layout.Box": [
     "layout.tablebox"
@@ -1359,7 +1370,13 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
-  "i18nDemo.view.Main": [
+  "i18nBundleTouchConcept.view.ContainerLoginView": [
+    "widget.containerLogin"
+  ],
+  "i18nBundleTouchConcept.view.Login": [
+    "widget.login"
+  ],
+  "i18nBundleTouchConcept.view.Main": [
     "widget.main"
   ]
 });

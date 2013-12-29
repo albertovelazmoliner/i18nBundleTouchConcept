@@ -43,9 +43,9 @@
             "path": "touch/sencha-touch.js",
             "x-bootstrap": true
         },
-        {
-            "path" : "js_i18n/Bundle.js"
-        },
+        // {
+        //     "path" : "js_i18n/Bundle.js"
+        // },
         {
             "path": "bootstrap.js",
             "x-bootstrap": true
@@ -108,7 +108,9 @@
     "resources": [
         "resources/images",
         "resources/icons",
-        "resources/startup"
+        "resources/startup",
+        "resources/Application_en-.properties",
+        "resources/Application_es-.properties"
     ],
 
     /**
