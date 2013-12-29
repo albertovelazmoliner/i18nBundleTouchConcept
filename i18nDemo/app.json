@@ -44,6 +44,9 @@
             "x-bootstrap": true
         },
         {
+            "path" : "js_i18n/Bundle.js"
+        },
+        {
             "path": "bootstrap.js",
             "x-bootstrap": true
         },
