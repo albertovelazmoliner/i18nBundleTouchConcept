@@ -10,24 +10,13 @@
     will need to resolve manually.
 */
 
-// Ext.Loader.setPath({
-//     'Ext.i18n': 'js_i18n'
-// });
-
-Ext.require('Ext.i18n.Bundle', function(){
-    Ext.i18n.appBundle = Ext.create('Ext.i18n.Bundle',{
-        bundle: 'Application',
-        lang: window.navigator.language.substr(0,2),
-        path: 'resources',
-        noCache: true
-    });
-});
 
 Ext.application({
     name: 'i18nBundleTouchConcept',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'Ext.i18n.Bundle'
     ],
 
     views: [
@@ -52,9 +41,23 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 
+//     onDependenciesLoaded: function(){
+//         console.log('BEFORE!!!!', this);
+// debugger;
+//         // i18nBundleTouchConcept.app.onDependenciesLoaded.call(this,arguments);
+//     },
+
     launch: function() {
         // Destroy the #appLoadingIndicator element
+        
         Ext.fly('appLoadingIndicator').destroy();
+
+        Ext.i18n.appBundle = Ext.create('Ext.i18n.Bundle',{
+            bundle: 'Application',
+            lang: window.navigator.language.substr(0,2),
+            path: 'resources',
+            noCache: true
+        });
 
         Ext.i18n.appBundle.onReady(function(){
             // Initialize the main view

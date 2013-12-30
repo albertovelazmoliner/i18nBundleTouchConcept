@@ -645,8 +645,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.viewport.WP"
   ],
   "i18nBundleTouchConcept.view.ContainerLoginView": [],
-  "i18nBundleTouchConcept.view.Login": [],
-  "i18nBundleTouchConcept.view.Main": []
+  "i18nBundleTouchConcept.view.Login": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1375,8 +1374,5 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "i18nBundleTouchConcept.view.Login": [
     "widget.login"
-  ],
-  "i18nBundleTouchConcept.view.Main": [
-    "widget.main"
   ]
 });

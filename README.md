@@ -1,19 +1,70 @@
 i18nBundleTouchConcept
 ======================
 
-Integrating Ext.i18n.Bundle from @elmasse in a sencha-touch demo project. Issues compiling with Sencha Cmd 4.x
+CHANGES:
 
-It works perfect in development but fail when you try to compile:
-sencha app build production
+# Adding 3rd Party Libs to CMD:
 
-You get this messages:
+1 - sencha.cfg file
 
-[ERR] C2008: Requirement had no matching files (Ext.i18n.Bundle) -- /Users/alberto/Documents/i18nBundleTouchConcept/i18nDemo/app.js:17:12
-[ERR]
-[ERR] BUILD FAILED
-[ERR] com.sencha.exceptions.ExBuild: Failed to find any files for /Users/alberto/Documents/i18nBundleTouchConcept/i18nDemo/app.js::ExtRequire::Ext.i18n.Bundle
-[ERR]
-[ERR] Total time: 3 seconds
-[ERR] The following error occurred while executing this line:
-/Users/alberto/Documents/i18nBundleTouchConcept/i18nDemo/.sencha/app/build-impl.xml:367: The following error occurred while executing this line:
-/Users/alberto/Documents/i18nBundleTouchConcept/i18nDemo/.sencha/app/js-impl.xml:11: com.sencha.exceptions.ExBuild: Failed to find any files for /Users/alberto/Documents/i18nBundleTouchConcept/i18nDemo/app.js::ExtRequire::Ext.i18n.Bundle
+on `.sencha/app/sencha.cfg`:
+
+You have to add the classpath for the folder where your 3rd party lib is located:
+
+`app.classpath=${app.dir}/app.js,${app.dir}/app,${app.dir}/js_i18n`
+
+I have added a reference to js_i18n folder.
+
+2 - Development:
+
+Do not add the js file in app.json:
+
+````
+    "js": [
+        {
+            "path": "touch/sencha-touch.js",
+            "x-bootstrap": true
+        },
+        // {
+        //     "path" : "js_i18n/Bundle.js"
+        // },
+        {
+            "path": "bootstrap.js",
+            "x-bootstrap": true
+        },
+        {
+            "path": "app.js",
+            "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
+            "update": "delta"
+        }
+    ],
+````
+
+Instead, once you added your folder to app.classpath you have to run:
+
+`sencha app refresh`
+
+This recreates the boostrap.js file, which contains and defines all workspaces needed in the app.
+
+Also you don't need this anymore in your app.js
+
+Ext.Loader.setPath({
+     'Ext.i18n': 'js_i18n'
+});
+
+This is done by cmd and added to boostrap file.
+
+3 - Issues with Ext.i18n.Bundle
+
+I have modified part of the code: in app.js and the view.
+
+In development mode there is no problem since the files are loaded in order and then once the Bundle is loaded the app kicks the process to load the store. In a prod build is different since all files are packed into the same definition and that makes the app to behave a bit different.
+
+So, to summarize, I have changed launch method to create the main view only after the Bundle is ready.
+
+
+On the other hand, the view was referencing the bundle instance at definition time - this is kind of problematic because of the issue of having everything in the same file. Basically, if we want to use the bundle reference it is better to do it on execution time, this is for instance, when calling a constructor or initialization method.
+
+
+
+
