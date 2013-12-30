@@ -41,28 +41,20 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 
-//     onDependenciesLoaded: function(){
-//         console.log('BEFORE!!!!', this);
-// debugger;
-//         // i18nBundleTouchConcept.app.onDependenciesLoaded.call(this,arguments);
-//     },
+
+    bundle: {
+        bundle: 'Application',
+        lang: window.navigator.language.substr(0,2),
+        path: 'resources',
+        noCache: true
+    },
 
     launch: function() {
         // Destroy the #appLoadingIndicator element
         
         Ext.fly('appLoadingIndicator').destroy();
 
-        Ext.i18n.appBundle = Ext.create('Ext.i18n.Bundle',{
-            bundle: 'Application',
-            lang: window.navigator.language.substr(0,2),
-            path: 'resources',
-            noCache: true
-        });
-
-        Ext.i18n.appBundle.onReady(function(){
-            // Initialize the main view
-            Ext.Viewport.add(Ext.create('i18nBundleTouchConcept.view.ContainerLoginView'));
-        });
+        Ext.Viewport.add(Ext.create('i18nBundleTouchConcept.view.ContainerLoginView'));
     },
 
     onUpdated: function() {
