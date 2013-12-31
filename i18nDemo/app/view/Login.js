@@ -88,7 +88,7 @@ Ext.define('i18nBundleTouchConcept.view.Login', {
                         xtype:'button',
                         itemId:'legalButton',
                         // text:Ext.i18n.appBundle.getMsg('pp.b.legal'),
-                        text: {type: 'bundle', key: 'pp.b.legal'},
+                        text: 'Trying html text with Ext.i18n : ' + {type: 'bundle', key: 'pp.b.legal'},
                         ui:'action'
                     },
                     {
